@@ -50,9 +50,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/5 px-4 py-1.5 font-mono text-xs text-emerald-400"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 font-mono text-xs"
+          style={{ borderColor: "color-mix(in oklab, var(--success) 35%, transparent)", backgroundColor: "color-mix(in oklab, var(--success) 8%, transparent)", color: "var(--success)" }}
         >
-          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_10px_rgb(52_211_153)]" />
+          <span className="h-2 w-2 animate-pulse rounded-full" style={{ backgroundColor: "var(--success)", boxShadow: "0 0 12px var(--success)" }} />
           Available from May 2026
         </motion.div>
 
