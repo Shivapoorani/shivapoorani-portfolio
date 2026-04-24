@@ -50,10 +50,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 font-mono text-xs text-primary"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/5 px-4 py-1.5 font-mono text-xs text-emerald-400"
         >
-          <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
-          Available for opportunities
+          <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400 shadow-[0_0_10px_rgb(52_211_153)]" />
+          Available from May 2026
         </motion.div>
 
         <motion.h1
@@ -63,8 +63,9 @@ export function Hero() {
           className="text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl"
         >
           <span className="text-gradient">Shiva Poorani</span>
-          <br />
-          <span className="text-foreground">G H</span>
+          <span className="ml-3 align-middle text-3xl text-foreground/80 md:text-4xl lg:text-5xl">
+            G H
+          </span>
         </motion.h1>
 
         <motion.div
@@ -119,7 +120,7 @@ export function Hero() {
           {[
             { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/shiva-poorani-a81a00228/" },
             { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/shiva_poorani/" },
-            { icon: Github, label: "GitHub", href: "https://github.com/" },
+            { icon: Github, label: "GitHub", href: "https://github.com/shiva-poorani" },
             { icon: Mail, label: "Email", href: "mailto:shivaspl164@gmail.com" },
           ].map((s) => (
             <a
