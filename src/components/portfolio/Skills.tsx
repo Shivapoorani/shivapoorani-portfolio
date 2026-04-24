@@ -1,37 +1,34 @@
 import { motion } from "framer-motion";
-import { Brain, Code2, Database, Wrench, Users } from "lucide-react";
+import { Flame, Zap, Sparkles } from "lucide-react";
 import { Section } from "./Section";
 
-const groups = [
+const levels = [
   {
-    icon: Brain,
-    title: "AI / ML",
-    color: "from-primary/20 to-primary/5",
-    items: ["LLMs", "RAG Pipelines", "LangChain", "Prompting", "Machine Learning", "Statistical Modeling"],
+    label: "Expert",
+    icon: Flame,
+    accent: "text-primary",
+    ring: "border-primary/50",
+    glow: "shadow-[0_0_30px_oklch(0.78_0.18_200/30%)]",
+    desc: "Ship daily, design from scratch, mentor others.",
+    skills: ["LLMs", "RAG Pipelines", "LangChain", "Prompting", "Python"],
   },
   {
-    icon: Code2,
-    title: "Programming",
-    color: "from-accent/20 to-accent/5",
-    items: ["Python", "R Programming", "SQL"],
+    label: "Proficient",
+    icon: Zap,
+    accent: "text-secondary",
+    ring: "border-secondary/50",
+    glow: "shadow-[0_0_30px_oklch(0.65_0.25_295/30%)]",
+    desc: "Comfortable in production. Solve real problems independently.",
+    skills: ["PostgreSQL", "APIs", "SQL", "Machine Learning", "Statistical Modeling", "Cursor"],
   },
   {
-    icon: Database,
-    title: "Data",
-    color: "from-secondary/20 to-secondary/5",
-    items: ["Data Analytics", "Data Visualization", "Tableau", "Excel"],
-  },
-  {
-    icon: Wrench,
-    title: "Tools & Infra",
-    color: "from-primary/20 to-secondary/10",
-    items: ["PostgreSQL", "APIs", "Cursor"],
-  },
-  {
-    icon: Users,
-    title: "Soft Skills",
-    color: "from-accent/20 to-primary/10",
-    items: ["Communication", "Teamwork", "Problem-solving", "Adaptability"],
+    label: "Familiar",
+    icon: Sparkles,
+    accent: "text-accent",
+    ring: "border-accent/50",
+    glow: "shadow-[0_0_30px_oklch(0.7_0.2_250/25%)]",
+    desc: "Working knowledge. Can pick up quickly when needed.",
+    skills: ["R Programming", "Tableau", "Data Visualization", "Excel"],
   },
 ];
 
@@ -41,34 +38,34 @@ export function Skills() {
       id="skills"
       eyebrow="Skills"
       title="The toolkit"
-      subtitle="Technologies and disciplines I use to ship reliable AI."
+      subtitle="Grouped by proficiency — honest about where I'm sharpest."
     >
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {groups.map((g, i) => (
+      <div className="grid gap-6 md:grid-cols-3">
+        {levels.map((lvl, i) => (
           <motion.div
-            key={g.title}
+            key={lvl.label}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="card-gradient border-glow group relative overflow-hidden rounded-2xl p-6"
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className={`card-gradient relative overflow-hidden rounded-2xl border ${lvl.ring} p-6 transition-all hover:-translate-y-1 ${lvl.glow}`}
           >
-            <div
-              className={`absolute inset-0 -z-10 bg-gradient-to-br ${g.color} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
-            />
-            <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
-                <g.icon size={22} />
+            <div className="mb-5 flex items-center justify-between">
+              <div className={`flex h-11 w-11 items-center justify-center rounded-xl bg-muted/60 ${lvl.accent}`}>
+                <lvl.icon size={20} />
               </div>
-              <h3 className="text-lg font-semibold">{g.title}</h3>
+              <span className={`font-mono text-xs uppercase tracking-[0.2em] ${lvl.accent}`}>
+                {lvl.label}
+              </span>
             </div>
+            <p className="mb-5 text-sm text-muted-foreground">{lvl.desc}</p>
             <div className="flex flex-wrap gap-2">
-              {g.items.map((item) => (
+              {lvl.skills.map((s) => (
                 <span
-                  key={item}
+                  key={s}
                   className="rounded-full border border-border bg-muted/40 px-3 py-1 text-xs text-foreground/90 transition-all hover:border-primary/60 hover:bg-primary/10 hover:text-primary"
                 >
-                  {item}
+                  {s}
                 </span>
               ))}
             </div>
