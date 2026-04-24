@@ -87,10 +87,7 @@ export function RoleProvider({ children }: { children: ReactNode }) {
 
 export function useRole() {
   const ctx = useContext(RoleCtx);
-  if (!ctx) {
-    // Fallback to default role so components can render outside provider (e.g. during SSR edge cases)
-    return { role: ROLES[0], setRoleKey: () => {} };
-  }
+  if (!ctx) throw new Error("useRole must be used within RoleProvider");
   return ctx;
 }
 
