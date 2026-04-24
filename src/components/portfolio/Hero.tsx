@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Download, ArrowDown } from "lucide-react";
+import { Mail, Download, ArrowDown, Linkedin, Code2, Github } from "lucide-react";
 
 const ROLES = ["AI Engineer", "LLM Developer", "RAG Architect", "Data Scientist"];
 
@@ -94,7 +94,7 @@ export function Hero() {
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <a
-            href="#contact"
+            href="mailto:shivaspl164@gmail.com?subject=Let%27s%20connect&body=Hi%20Shiva%2C"
             className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-8 py-3.5 font-medium text-primary-foreground shadow-[0_0_30px_oklch(0.78_0.18_200/40%)] transition-all hover:scale-105 hover:shadow-[0_0_50px_oklch(0.78_0.18_200/70%)]"
           >
             <Mail size={18} />
@@ -108,6 +108,32 @@ export function Hero() {
             <Download size={18} />
             Download Resume
           </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+        >
+          {[
+            { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/in/shiva-poorani-a81a00228/" },
+            { icon: Code2, label: "LeetCode", href: "https://leetcode.com/u/shiva_poorani/" },
+            { icon: Github, label: "GitHub", href: "https://github.com/" },
+            { icon: Mail, label: "Email", href: "mailto:shivaspl164@gmail.com" },
+          ].map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target={s.href.startsWith("http") ? "_blank" : undefined}
+              rel="noreferrer"
+              aria-label={s.label}
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-4 py-2 text-sm text-muted-foreground backdrop-blur transition-all hover:border-primary/60 hover:text-primary hover:shadow-[0_0_20px_oklch(0.78_0.18_200/40%)]"
+            >
+              <s.icon size={14} />
+              <span className="hidden sm:inline">{s.label}</span>
+            </a>
+          ))}
         </motion.div>
 
         <motion.a
