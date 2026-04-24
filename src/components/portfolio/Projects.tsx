@@ -135,7 +135,6 @@ export function Projects() {
                     <span
                       key={b}
                       className="rounded-full border border-success/40 bg-success/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-success"
-                      style={{ color: "oklch(var(--success))" }}
                     >
                       {b}
                     </span>
