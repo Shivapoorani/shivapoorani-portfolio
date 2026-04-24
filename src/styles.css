@@ -168,5 +168,55 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-display);
+    background-image: var(--gradient-radial);
+    background-attachment: fixed;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 }
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glow-cyan {
+    box-shadow: var(--shadow-glow);
+  }
+  .glow-purple {
+    box-shadow: var(--shadow-glow-purple);
+  }
+  .card-gradient {
+    background: var(--gradient-card);
+    backdrop-filter: blur(12px);
+  }
+  .border-glow {
+    border: 1px solid oklch(0.78 0.18 200 / 30%);
+    transition: var(--transition-smooth);
+  }
+  .border-glow:hover {
+    border-color: oklch(0.78 0.18 200 / 80%);
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px oklch(0.78 0.18 200 / 30%); }
+  50% { box-shadow: 0 0 40px oklch(0.78 0.18 200 / 60%); }
+}
+.animate-blink { animation: blink 1s infinite; }
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
